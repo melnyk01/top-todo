@@ -1,0 +1,9 @@
+div#content {
+    display: flex;
+    flex-direction: column;
+}
+
+.task {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}

@@ -1,4 +1,7 @@
 import "./style.css";
-import { createTask } from "./content";
+import { createTask } from "./create-task";
+import { taskList } from "./taskList";
 
-createTask();
+taskList().addTask(createTask());
+console.table(taskList().show());
+
