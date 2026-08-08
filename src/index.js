@@ -1,7 +1,10 @@
 import "./style.css";
-import { createTask } from "./create-task";
-import { taskList } from "./taskList";
+import { createTask } from "./task";
+import { TaskList } from "./taskList";
+import { renderTasks } from "./UI";
 
-taskList().addTask(createTask());
-console.table(taskList().show());
-
+const myList = new TaskList();
+console.log(myList.list);
+myList.addTask();
+renderTasks(myList.list);
+createTask();

@@ -1,10 +1,10 @@
-export function taskList() {
-    const list = {};
-    list.show = function () {
-        return list;
+export class TaskList {
+    constructor() {
+        this.list = [];
+
     }
-    list.addTask = function (task) {
-        list.task = task;
+
+    addTask(task) {
+        this.list.push(task);
     }
-    return list
 }
