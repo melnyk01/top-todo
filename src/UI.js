@@ -8,13 +8,13 @@ export function renderTasks(taskList) {
         input.type = 'checkbox';
         input.id = 'cb';
         label.setAttribute('for', 'cb');
+        label.textContent = taskName;
         task.appendChild(input);
         task.appendChild(label);
         content.appendChild(task);
-        label.textContent = taskName;
     }
 
-    for (task of taskList) {
+    for (const task of taskList) {
         renderTask(task);
     }
 

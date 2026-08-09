@@ -1,10 +1,4 @@
 import "./style.css";
-import { createTask } from "./task";
-import { TaskList } from "./taskList";
-import { renderTasks } from "./UI";
+import { listeners } from "./event-listeners";
 
-const myList = new TaskList();
-console.log(myList.list);
-myList.addTask();
-renderTasks(myList.list);
-createTask();
+listeners();
