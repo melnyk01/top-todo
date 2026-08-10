@@ -1,4 +1,12 @@
 import "./style.css";
-import { listeners } from "./event-listeners";
+import { displayList } from "./UI";
+const taskList = JSON.parse(localStorage.getItem("list"));
+displayList(taskList);
 
-listeners();
+const createTaskBtn = document.querySelector('#create-task');
+createTaskBtn.addEventListener('click', () => {
+    taskList.push(prompt('Name?!'));
+    displayList(taskList);
+    localStorage.setItem("list", JSON.stringify(taskList))
+
+})

@@ -1,6 +1,7 @@
-export function renderTasks(taskList) {
+export function displayList(taskList) {
+    const content = document.getElementById('content');
+
     function renderTask(taskName) {
-        const content = document.getElementById('content');
         const task = document.createElement('div');
         task.className = 'task';
         const label = document.createElement('label');
@@ -14,8 +15,14 @@ export function renderTasks(taskList) {
         content.appendChild(task);
     }
 
+    function clearList() {
+        while (content.lastChild) {
+            content.removeChild(content.lastChild);
+        }
+    }
+
+    clearList();
     for (const task of taskList) {
         renderTask(task);
     }
-
 }
