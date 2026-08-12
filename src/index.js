@@ -3,6 +3,7 @@ import { UI } from "./UI";
 import { Task } from "./create-task";
 
 const taskList = JSON.parse(localStorage.getItem("list")) || [];
+UI(taskList);
 
 const createTaskBtn = document.querySelector('#create-task');
 createTaskBtn.addEventListener('click', () => {

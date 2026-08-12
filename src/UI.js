@@ -1,3 +1,4 @@
+const taskList = JSON.parse(localStorage.getItem("list")) || [];
 export function UI(taskList) {
     const content = document.getElementById('content');
 
@@ -7,6 +8,7 @@ export function UI(taskList) {
         const label = document.createElement('label');
         const input = document.createElement('input');
         const removeBtn = document.createElement('button');
+        div.id = task.id
         input.type = 'checkbox';
         input.id = 'cb';
         label.setAttribute('for', 'cb');
@@ -15,7 +17,10 @@ export function UI(taskList) {
         removeBtn.id = task.id
         removeBtn.textContent = 'Remove';
 
-        removeBtn.addEventListener('click', () => {
+        removeBtn.addEventListener('click', (e) => {
+            const task = document.getElementById(e.target.id);
+            removeTask(task.id)
+            content.removeChild(task);
 
         })
 
@@ -23,6 +28,19 @@ export function UI(taskList) {
         div.appendChild(label);
         div.appendChild(removeBtn);
         content.appendChild(div);
+    }
+    //Will separate the logic in next commits...
+    function removeTask(id) {
+        for (const task of taskList) {
+            if (task.id == id) {
+                console.table(taskList);
+                const taskIndex = taskList.indexOf(task);
+                taskList.splice(taskIndex, 1);
+                console.table(taskList);
+                localStorage.setItem("list", JSON.stringify(taskList))
+
+            }
+        }
     }
 
     function clearList() {
