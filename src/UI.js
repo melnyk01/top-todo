@@ -11,6 +11,7 @@ export function UI(taskList) {
         div.id = task.id
         input.type = 'checkbox';
         input.id = 'cb';
+        input.checked = task.status;
         label.setAttribute('for', 'cb');
         label.textContent = task.name;
         removeBtn.className = 'remove';
@@ -23,6 +24,11 @@ export function UI(taskList) {
             content.removeChild(task);
 
         })
+
+        label.addEventListener("click", () => {
+            // change status logic
+        }
+        )
 
         div.appendChild(input);
         div.appendChild(label);
